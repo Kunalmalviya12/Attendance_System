@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+  }
+  
+  /* Hero Section */
+  .bgimage{
+    background: url("../Assests/home.webp") no-repeat center/cover;
+    
+  }
+  .hero {
+    
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    color: white;
+    padding: 20px;
+    
+  }

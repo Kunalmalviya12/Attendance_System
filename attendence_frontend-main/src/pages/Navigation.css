@@ -1,0 +1,18 @@
+.icon-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-wrapper .smaller {
+  font-size: 0.7em;
+  position: absolute;
+  bottom: -3px;
+  right: -3px;
+}
+
+
+.logo {
+  cursor: pointer;
+} 

@@ -1,0 +1,193 @@
+/* Container styles */
+.register-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.register-box {
+    width: 100%;
+    max-width: 450px; /* Reduced from 600px */
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 0 auto; /* Added to ensure center alignment */
+}
+
+.register-left {
+    padding: 2.5rem; /* Reduced padding */
+}
+
+.form-group {
+    margin-bottom: 1rem; /* Reduced from 1.5rem */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: #333;
+    font-weight: 500;
+}
+
+.form-group label i {
+    margin-right: 6px;
+    color: #4a90e2;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.625rem 0.875rem; /* Slightly reduced padding */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.1);
+}
+
+/* Style for enrollment number input */
+.form-group input[name="enrollmentNo"] {
+    letter-spacing: 1px;
+    font-family: monospace;
+    font-size: 15px;
+}
+
+.error {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 4px;
+    display: block;
+}
+
+/* Success message styling */
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    animation: slideIn 0.3s ease-out;
+}
+
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    animation: slideIn 0.3s ease-out;
+}
+
+.error-input {
+    border-color: #dc3545 !important;
+    background-color: #fff8f8;
+}
+
+.error-text {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 4px;
+    display: block;
+    animation: slideIn 0.3s ease-out;
+}
+
+.loading-spinner {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Update existing button styles */
+.register-btn {
+    width: 100%;
+    padding: 12px;
+    background: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.register-btn:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+}
+
+.register-btn:not(:disabled):hover {
+    background: #357abd;
+    transform: translateY(-2px);
+}
+
+/* Update responsive design */
+@media (max-width: 480px) {
+    .register-box,
+    .login-box {
+        padding: 1.5rem;
+    }
+
+    .register-left,
+    .login-left {
+        padding: 1.5rem;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .form-group input,
+    .form-group select {
+        padding: 8px;
+    }
+    
+    .form-group input[name="enrollmentNo"] {
+        font-size: 13px;
+    }
+    
+    .form-group {
+        margin-bottom: 12px;
+    }
+} 
