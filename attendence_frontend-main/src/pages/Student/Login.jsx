@@ -37,10 +37,11 @@ function Login() {
         // Store user data in localStorage or context if needed
         localStorage.setItem('user', JSON.stringify(response.data.user));
         
+        const userName = response.data.userName;
         // Navigate based on user type
         switch (formData.userType) {
           case "student":
-            navigate('/StudentDashboard');
+            navigate('/StudentDashboard', { state : userName  });
             break;
           case "faculty":
             navigate('/FacultyDashboard');

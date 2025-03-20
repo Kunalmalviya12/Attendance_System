@@ -1,10 +1,22 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import "./Dashboard.css";
 
 const Dashboard = () => {
+  const location = useLocation();
+  useEffect(() => {
+    const userName = location.state || localStorage.getItem("studentName") || "John Doe";
+    setStudentName(userName);
+
+    // Optionally, save the student name to localStorage if it comes from location.state
+    if (location.state) {
+      localStorage.setItem("studentName", location.state);
+    }
+  }, [location.state]);
+  
+
   const navigate = useNavigate();
-  const [studentName] = useState("John Doe");
+  const [studentName, setStudentName] = useState("John Doe");
   const [showHistory, setShowHistory] = useState(false);
   const [selectedSubject, setSelectedSubject] = useState(null);
   const [selectedMonth, setSelectedMonth] = useState("all");
