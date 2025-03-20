@@ -34,7 +34,11 @@ app.post("/register", async (req, res) => {
   try {
     // Check if user already exists
     const userExists = await User.findOne({ email });
+    const userExistsEnrollment = await User.findOne({ enrollmentNo });
     if (userExists) {
+      return res.status(202).json({ message: "User already exists" });
+    }
+    if (userExistsEnrollment) {
       return res.status(202).json({ message: "User already exists" });
     }
 
@@ -82,8 +86,8 @@ app.post("/login", async (req, res) => {
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });
-
-    res.status(200).json({ message: "Login successful", token });
+    const userName = user.name;
+    res.status(200).json({ message: "Login successful", token, userName });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error" });
