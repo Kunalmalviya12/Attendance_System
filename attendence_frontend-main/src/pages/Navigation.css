@@ -12,7 +12,45 @@
   right: -3px;
 }
 
-
 .logo {
   cursor: pointer;
+}
+
+.login-logout-btn {
+  background-color:linear-gradient(45deg, #ff8c00, #e63946);
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  padding: 8px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+.login-logout-btn:hover {
+  background-color:linear-gradient(45deg, #ff8c00, #e63946);
+}
+
+.btn-content {
+  
+  display: flex;
+  align-items: center;
+}
+
+.btn-content i {
+  margin-right: 8px;
+  font-size: 1.2em;
+}
+
+.btn-content span {
+  line-height: 1;
+  font-size: 1em;
+}
+
+.login-item {
+  display: flex;
+  align-items: center;
 } 

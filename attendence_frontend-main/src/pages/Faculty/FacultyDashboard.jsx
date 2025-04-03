@@ -18,31 +18,159 @@ const FacultyDashboard = () => {
   
   // Updated students data structure with subject-wise grouping
   const [students] = useState({
-    "Data Structures": [
+    "FullStack Development": [
       {
         id: "101",
-        name: "John Doe",
+        name: "Komal Shah",
         attendance: [
           { date: "2024-03-10", time: "10:30 AM", status: "Present" },
-          { date: "2024-03-09", time: "11:30 AM", status: "Absent" }
+          { date: "2024-03-09", time: "11:30 AM", status: "Absent" },
+          { date: "2024-03-15", time: "12:30 PM", status: "Absent" },
+          { date: "2024-03-20", time: "01:30 PM", status: "Present" }
         ]
       },
       {
         id: "102",
-        name: "Jane Smith",
+        name: "Virat Shah",
         attendance: [
           { date: "2024-03-10", time: "10:30 AM", status: "Present" },
-          { date: "2024-03-09", time: "11:30 AM", status: "Present" }
+          { date: "2024-03-12", time: "01:30 PM", status: "Present" },
+          { date: "2024-03-19", time: "11:30 AM", status: "Absent" },
+          { date: "2024-03-22", time: "02:30 PM", status: "Absent" }
+        ]
+      },
+      {
+        id: "103",
+        name: "Ami Dave",
+        attendance: [
+          { date: "2024-03-15", time: "10:30 AM", status: "Present" },
+          { date: "2024-03-12", time: "11:30 AM", status: "Absent" },
+          { date: "2024-03-10", time: "03:30 PM", status: "Absent" },
+          { date: "2024-03-05", time: "04:30 PM", status: "Present" }
+        ]
+      },
+      {
+        id: "104",
+        name: "Sita Sharma",
+        attendance: [
+          { date: "2024-03-11", time: "10:30 AM", status: "Present" },
+          { date: "2024-03-18", time: "11:30 AM", status: "Present" },
+          { date: "2024-03-20", time: "05:30 PM", status: "Absent" },
+          { date: "2024-03-25", time: "06:00 PM", status: "Absent" }
+        ]
+      },
+      {
+        id: "105",
+        name: "Ram Sharma",
+        attendance: [
+          { date: "2024-03-10", time: "12:30 PM", status: "Absent" },
+          { date: "2024-03-15", time: "11:30 AM", status: "Present" },
+          { date: "2024-03-12", time: "10:30 AM", status: "Present" },
+          { date: "2024-03-09", time: "02:30 PM", status: "Absent" }
         ]
       }
     ],
     "Database Management": [
       {
-        id: "103",
-        name: "Alice Johnson",
+        id: "101",
+        name: "Meet",
         attendance: [
-          { date: "2024-03-10", time: "09:30 AM", status: "Present" },
-          { date: "2024-03-09", time: "09:30 AM", status: "Absent" }
+          { date: "2024-03-11", time: "09:30 AM", status: "Present" },
+          { date: "2024-03-10", time: "10:30 AM", status: "Absent" },
+          { date: "2024-03-09", time: "11:30 AM", status: "Present" },
+          { date: "2024-03-04", time: "12:30 PM", status: "Absent" }
+        ]
+      },
+      {
+        id: "102",
+        name: "Komal Shah",
+        attendance: [
+          { date: "2024-03-25", time: "12:30 PM", status: "Present" },
+          { date: "2024-03-15", time: "11:00 AM", status: "Absent" },
+          { date: "2024-03-12", time: "04:30 PM", status: "Absent" },
+          { date: "2024-03-10", time: "10:30 AM", status: "Present" }
+        ]
+      },
+      {
+        id: "103",
+        name: "Virat Shah",
+        attendance: [
+          { date: "2024-03-24", time: "09:30 AM", status: "Present" },
+          { date: "2024-03-12", time: "12:30 PM", status: "Present" },
+          { date: "2024-03-10", time: "10:30 AM", status: "Present" },
+          { date: "2024-03-02", time: "05:00 PM", status: "Absent" }
+        ]
+      },
+      {
+        id: "104",
+        name: "Ami Sharma",
+        attendance: [
+          { date: "2024-03-20", time: "02:30 PM", status: "Present" },
+          { date: "2024-03-15", time: "11:30 AM", status: "Present" },
+          { date: "2024-03-10", time: "09:30 AM", status: "Absent" },
+          { date: "2024-03-05", time: "12:30 PM", status: "Absent" }
+        ]
+      },
+      {
+        id: "105",
+        name: "Geeta Shah",
+        attendance: [
+          { date: "2024-03-30", time: "05:30 PM", status: "Present" },
+          { date: "2024-03-25", time: "07:30 AM", status: "Absent" },
+          { date: "2024-03-15", time: "09:30 AM", status: "Absent" },
+          { date: "2024-03-10", time: "11:30 AM", status: "Present" }
+        ]
+      }
+    ],
+    "Management Information System": [
+      {
+        id: "101",
+        name: "Glenn Phillips",
+        attendance: [
+          { date: "2024-03-29", time: "09:30 AM", status: "Present" },
+          { date: "2024-03-25", time: "10:30 AM", status: "Absent" },
+          { date: "2024-03-18", time: "11:30 AM", status: "Present" },
+          { date: "2024-03-10", time: "12:30 PM", status: "Absent" }
+        ]
+      },
+      {
+        id: "102",
+        name: "Komal Shah",
+        attendance: [
+          { date: "2024-03-25", time: "12:30 PM", status: "Present" },
+          { date: "2024-03-15", time: "11:00 AM", status: "Absent" },
+          { date: "2024-03-12", time: "04:30 PM", status: "Absent" },
+          { date: "2024-03-10", time: "10:30 AM", status: "Present" }
+        ]
+      },
+      {
+        id: "103",
+        name: "Virat Shah",
+        attendance: [
+          { date: "2024-03-24", time: "09:30 AM", status: "Present" },
+          { date: "2024-03-12", time: "12:30 PM", status: "Present" },
+          { date: "2024-03-10", time: "10:30 AM", status: "Present" },
+          { date: "2024-03-02", time: "05:00 PM", status: "Absent" }
+        ]
+      },
+      {
+        id: "104",
+        name: "Ami Sharma",
+        attendance: [
+          { date: "2024-03-20", time: "02:30 PM", status: "Present" },
+          { date: "2024-03-15", time: "11:30 AM", status: "Present" },
+          { date: "2024-03-10", time: "09:30 AM", status: "Absent" },
+          { date: "2024-03-05", time: "12:30 PM", status: "Absent" }
+        ]
+      },
+      {
+        id: "105",
+        name: "Geeta Shah",
+        attendance: [
+          { date: "2024-03-30", time: "05:30 PM", status: "Present" },
+          { date: "2024-03-25", time: "07:30 AM", status: "Absent" },
+          { date: "2024-03-15", time: "09:30 AM", status: "Absent" },
+          { date: "2024-03-10", time: "11:30 AM", status: "Present" }
         ]
       }
     ]
@@ -145,17 +273,40 @@ const FacultyDashboard = () => {
     }
   }, [selectedCourse]);
 
+  // Modify the handleGenerateQR function to include the QR code generation logic
   const handleGenerateQR = () => {
     if (!selectedSubject.trim()) {
       alert("Please select a subject");
       return;
     }
 
-    const qrValue = `https://your-attendance-system.com/verify?course=${encodeURIComponent(selectedCourse)}&subject=${encodeURIComponent(selectedSubject)}`;
-    const staticDateTime = new Date().toLocaleString();
-    setQrData(qrValue);
+    // Generate QR code with timestamp to make it unique
+    const generateNewQR = () => {
+      const qrValue = `https://your-attendance-system.com/verify?course=${encodeURIComponent(selectedCourse)}&subject=${encodeURIComponent(selectedSubject)}&timestamp=${new Date().getTime()}`;
+      setQrData(qrValue);
+      setTimestamp(new Date().toLocaleString());
+    };
+
+    // Generate initial QR code
+    generateNewQR();
     setShowQR(true);
-    setTimestamp(staticDateTime);
+
+    // Set up interval to change QR code every 2 seconds
+    const intervalId = setInterval(() => {
+      generateNewQR();
+    }, 2000);
+
+    // Hide QR code after 30 seconds
+    const timeoutId = setTimeout(() => {
+      setShowQR(false);
+      clearInterval(intervalId);
+    }, 30000); // 30 seconds
+
+    // Clean up interval and timeout if component unmounts
+    return () => {
+      clearInterval(intervalId);
+      clearTimeout(timeoutId);
+    };
   };
 
   const handleShowHistory = () => {
@@ -488,11 +639,11 @@ const FacultyDashboard = () => {
           </div>
         </div>
 
-        {showQR && (
+        {showQR && qrData && (
           <div className="qr-display">
             <h2>QR Code for {selectedCourse} - {selectedSubject}</h2>
             <div className="qr-code">
-              {qrData ? <QRCode value={qrData} size={200} /> : <p>Please select a subject to generate a QR code.</p>}
+              <QRCode value={qrData} size={200} />
             </div> 
             <p className="qr-info">Generated on: <strong>{timestamp}</strong></p>
           </div>

@@ -26,9 +26,9 @@ const Dashboard = () => {
   // Sample attendance data
   const attendanceData = {
     "Data Structures": {
-      totalClasses: 15,
-      attended: 12,
-      percentage: 80,
+      totalClasses: 5,
+      attended: 8,
+      percentage: 50,
       monthlyData: {
         "March 2024": {
           total: 8,
@@ -51,9 +51,9 @@ const Dashboard = () => {
       }
     },
     "Database Management": {
-      totalClasses: 12,
-      attended: 10,
-      percentage: 83.33,
+      totalClasses: 10,
+      attended: 7,
+      percentage: 80,
       monthlyData: {
         "March 2024": {
           total: 6,
@@ -76,9 +76,9 @@ const Dashboard = () => {
       }
     },
     "Web Development": {
-      totalClasses: 10,
+      totalClasses: 15,
       attended: 8,
-      percentage: 80,
+      percentage: 90,
       monthlyData: {
         "March 2024": {
           total: 5,
@@ -95,6 +95,31 @@ const Dashboard = () => {
           history: [
             { date: "2024-02-26", time: "09:30 AM", status: "Present" },
             { date: "2024-02-19", time: "09:30 AM", status: "Present" },
+            { date: "2024-02-12", time: "09:30 AM", status: "Present" },
+          ]
+        }
+      }
+    },
+    "Python": {
+      totalClasses: 15,
+      attended: 10,
+      percentage: 80.12,
+      monthlyData: {
+        "March 2024": {
+          total: 5,
+          attended: 4,
+          history: [
+            { date: "2024-03-08", time: "09:30 AM", status: "Present" },
+            { date: "2024-03-06", time: "09:30 AM", status: "Present" },
+            { date: "2024-03-04", time: "09:30 AM", status: "Absent" },
+          ]
+        },
+        "February 2024": {
+          total: 5,
+          attended: 4,
+          history: [
+            { date: "2024-02-26", time: "09:30 AM", status: "Present" },
+            { date: "2024-02-19", time: "09:30 AM", status: "Absent" },
             { date: "2024-02-12", time: "09:30 AM", status: "Present" },
           ]
         }

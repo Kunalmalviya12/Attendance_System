@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Register.css";
@@ -89,13 +89,13 @@ const Register = () => {
         if (validateForm()) {
             try {
                 const response = await axios.post('http://localhost:5000/register', formData);
-                if(response.status == 202){
-                    setErrors({ submit: "Exist"})
+                if(response.status === 202){
+                    setErrors({ submit: "User already exists"})
                 }
-                if (response.status == 201) {
+                if (response.status === 201) {
                     setSuccessMessage("Registration successful! Redirecting to login...");
                     setTimeout(() => {
-                        navigate('/login');
+                        navigate('/login');  // Redirect to login page
                     }, 2000);
                 }
             } catch (error) {
@@ -112,75 +112,61 @@ const Register = () => {
     return (
         <div className="register-page">
             <div className="register-container">
-                <div className="register-left">
-                    <div className="register-header">
-                        <h2>Create Account</h2>
-                        <p>Please fill in the details to register</p>
-                    </div>
-
-                    {successMessage && (
-                        <div className="success-message">
-                            <i className="fas fa-check-circle"></i>
-                            {successMessage}
-                        </div>
-                    )}
-
-                    {errors.submit && (
-                        <div className="error-message">
-                            <i className="fas fa-exclamation-circle"></i>
-                            {errors.submit}
-                        </div>
-                    )}
-
-                    <form onSubmit={handleSubmit} className="register-form">
-                        <div className="form-group">
-                            <label>
-                                <i className="fas fa-user"></i>
-                                Full Name
-                            </label>
-                            <input
-                                type="text"
-                                name="name"
-                                value={formData.name}
-                                onChange={handleChange}
-                                className={errors.name ? 'error-input' : ''}
-                                placeholder="Enter your full name"
-                            />
-                            {errors.name && <span className="error-text">{errors.name}</span>}
+                <div className="register-box">
+                    <div className="register-left">
+                        <div className="register-header">
+                            <h2>Create Account</h2>
+                            <p>Please fill in the details to register</p>
                         </div>
 
-                        <div className="form-group">
-                            <label>
-                                <i className="fas fa-id-card"></i>
-                                <span>Enrollment Number</span>
-                            </label>
-                            <input
-                                type="text"
-                                name="enrollmentNo"
-                                placeholder="Enter your enrollment number"
-                                value={formData.enrollmentNo}
-                                onChange={handleChange}
-                                maxLength="8"
-                            />
-                            {errors.enrollmentNo && <span className="error">{errors.enrollmentNo}</span>}
-                        </div>
+                        {successMessage && (
+                            <div className="success-message">
+                                <i className="fas fa-check-circle"></i>
+                                {successMessage}
+                            </div>
+                        )}
 
-                        <div className="form-group">
-                            <label>
-                                <i className="fas fa-envelope"></i>
-                                <span>Email</span>
-                            </label>
-                            <input
-                                type="email"
-                                name="email"
-                                placeholder="Enter your email"
-                                value={formData.email}
-                                onChange={handleChange}
-                            />
-                            {errors.email && <span className="error">{errors.email}</span>}
-                        </div>
+                        {errors.submit && (
+                            <div className="error-message">
+                                <i className="fas fa-exclamation-circle"></i>
+                                {errors.submit}
+                            </div>
+                        )}
 
-                        <div className="form-row">
+                        <form onSubmit={handleSubmit} className="register-form">
+                            <div className="form-group">
+                                <label>
+                                    <i className="fas fa-user"></i>
+                                    Full Name
+                                </label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value={formData.name}
+                                    onChange={handleChange}
+                                    className={errors.name ? 'error-input' : ''}
+                                    placeholder="Enter your full name"
+                                />
+                                {errors.name && <span className="error-text">{errors.name}</span>}
+                            </div>
+
+                            <div className="form-group">
+                                <label>
+                                    <i className="fas fa-id-card"></i>
+                                    <span>Enrollment Number</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    name="enrollmentNo"
+                                    placeholder="Enter your enrollment number"
+                                    value={formData.enrollmentNo}
+                                    onChange={handleChange}
+                                    maxLength="8"
+                                    className={errors.enrollmentNo ? 'error-input' : ''}
+                                />
+                                {errors.enrollmentNo && <span className="error-text">{errors.enrollmentNo}</span>}
+                            </div>
+
                             <div className="form-group">
                                 <label>
                                     <i className="fas fa-graduation-cap"></i>
@@ -192,8 +178,9 @@ const Register = () => {
                                     placeholder="Enter your course"
                                     value={formData.course}
                                     onChange={handleChange}
+                                    className={errors.course ? 'error-input' : ''}
                                 />
-                                {errors.course && <span className="error">{errors.course}</span>}
+                                {errors.course && <span className="error-text">{errors.course}</span>}
                             </div>
 
                             <div className="form-group">
@@ -201,62 +188,85 @@ const Register = () => {
                                     <i className="fas fa-clock"></i>
                                     <span>Year</span>
                                 </label>
-                                <select name="year" value={formData.year} onChange={handleChange}>
+                                <select 
+                                    name="year" 
+                                    value={formData.year} 
+                                    onChange={handleChange}
+                                    className={errors.year ? 'error-input' : ''}
+                                >
                                     <option value="">Select Year</option>
                                     <option value="1">1st Year</option>
                                     <option value="2">2nd Year</option>
                                     <option value="3">3rd Year</option>
                                     <option value="4">4th Year</option>
                                 </select>
-                                {errors.year && <span className="error">{errors.year}</span>}
+                                {errors.year && <span className="error-text">{errors.year}</span>}
                             </div>
-                        </div>
 
-                        <div className="form-group">
-                            <label>
-                                <i className="fas fa-phone-alt"></i>
-                                <span>Phone Number</span>
-                            </label>
-                            <input
-                                type="tel"
-                                name="phone"
-                                placeholder="Enter your phone number"
-                                value={formData.phone}
-                                onChange={handleChange}
-                            />
-                            {errors.phone && <span className="error">{errors.phone}</span>}
-                        </div>
+                            <div className="form-group">
+                                <label>
+                                    <i className="fas fa-envelope"></i>
+                                    <span>Email</span>
+                                </label>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    placeholder="Enter your email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    className={errors.email ? 'error-input' : ''}
+                                />
+                                {errors.email && <span className="error-text">{errors.email}</span>}
+                            </div>
 
-                        <div className="form-group">
-                            <label>
-                                <i className="fas fa-lock"></i>
-                                <span>Password</span>
-                            </label>
-                            <input
-                                type="password"
-                                name="password"
-                                placeholder="Create a password"
-                                value={formData.password}
-                                onChange={handleChange}
-                            />
-                            {errors.password && <span className="error">{errors.password}</span>}
-                        </div>
+                            <div className="form-group">
+                                <label>
+                                    <i className="fas fa-phone-alt"></i>
+                                    <span>Phone Number</span>
+                                </label>
+                                <input
+                                    type="tel"
+                                    name="phone"
+                                    placeholder="Enter your phone number"
+                                    value={formData.phone}
+                                    onChange={handleChange}
+                                    className={errors.phone ? 'error-input' : ''}
+                                />
+                                {errors.phone && <span className="error-text">{errors.phone}</span>}
+                            </div>
 
-                        <button 
-                            type="submit" 
-                            className="register-btn"
-                            disabled={isSubmitting}
-                        >
-                            {isSubmitting ? (
-                                <span className="loading-spinner"></span>
-                            ) : (
-                                <>
-                                    <span>Register Now</span>
-                                    <i className="fas fa-arrow-right"></i>
-                                </>
-                            )}
-                        </button>
-                    </form>
+                            <div className="form-group">
+                                <label>
+                                    <i className="fas fa-lock"></i>
+                                    <span>Password</span>
+                                </label>
+                                <input
+                                    type="password"
+                                    name="password"
+                                    placeholder="Create a password"
+                                    value={formData.password}
+                                    onChange={handleChange}
+                                    className={errors.password ? 'error-input' : ''}
+                                />
+                                {errors.password && <span className="error-text">{errors.password}</span>}
+                            </div>
+
+                            <button 
+                                type="submit" 
+                                className="register-btn"
+                                disabled={isSubmitting}
+                            >
+                                {isSubmitting ? (
+                                    <span className="loading-spinner"></span>
+                                ) : (
+                                    <>
+                                        <span>Register Now</span>
+                                        <i className="fas fa-arrow-right"></i>
+                                    </>
+                                )}
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

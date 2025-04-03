@@ -580,3 +580,42 @@
   .timetable-table tbody tr:nth-child(even) {
     background-color: #fafafa;
   }
+
+  .student-details-card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .student-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+  }
+
+  .info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .info-label {
+    font-size: 0.85rem;
+    color: #666;
+    font-weight: 500;
+  }
+
+  .info-value {
+    font-size: 1rem;
+    color: #333;
+    font-weight: 600;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .student-info-grid {
+      grid-template-columns: 1fr;
+    }
+  }

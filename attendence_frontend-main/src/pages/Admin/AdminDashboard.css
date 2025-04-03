@@ -56,9 +56,10 @@ body {
 
 .faculty-management {
   background: white;
-  padding: 2rem;
+  padding: 1.5rem; /* Increased padding for better spacing */
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem; /* Add margin to create space below */
 }
 
 .faculty-management h2 {
@@ -406,4 +407,82 @@ body {
 
 .create-timetable-btn:active {
   transform: translateY(0);
+}
+
+.user-details {
+  background: white;
+  padding: 1.5rem; /* Increased padding for better spacing */
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+}
+
+.user-details h2 {
+  color: #4a90e4;
+  margin-bottom: 1rem;
+  font-size: 1.5rem; /* Increased font size for the heading */
+}
+
+.user-container {
+  display: flex; /* Use flexbox to arrange columns side by side */
+  justify-content: space-between; /* Space between columns */
+  gap: 2rem; /* Space between columns */
+}
+
+.user-column {
+  flex: 1; /* Allow columns to grow equally */
+}
+
+.user-details h3 {
+  color: #333;
+  margin-top: 1.5rem; /* Space above the subheading */
+}
+
+.user-item {
+  padding: 0.8rem; /* Padding for each user item */
+  border: 1px solid #ddd; /* Border for user items */
+  border-radius: 5px; /* Rounded corners */
+  background-color: #f8f9fa; /* Light background for user items */
+  margin-bottom: 0.5rem; /* Space between user items */
+}
+
+.user-item:hover {
+  background-color: #e9ecef; /* Highlight on hover */
+}
+
+.user-table {
+  width: 100%; /* Full width */
+  border-collapse: collapse; /* Collapse borders */
+  margin-bottom: 1.5rem; /* Space below the table */
+}
+
+.user-table th, .user-table td {
+  padding: 0.8rem; /* Padding for table cells */
+  border: 1px solid #ddd; /* Border for table cells */
+  text-align: left; /* Align text to the left */
+}
+
+.user-table th {
+  background-color: #f8f9fa; /* Light background for header */
+  color: #333; /* Dark text for header */
+}
+
+.user-table tr:nth-child(even) {
+  background-color: #f2f2f2; /* Zebra striping for rows */
+}
+
+.user-table tr:hover {
+  background-color: #e9ecef; /* Highlight row on hover */
+}
+
+.user-details button {
+  margin-top: 1rem; /* Space above the close button */
+}
+
+/* Loading Indicator Styles */
+.loading {
+  font-size: 1.2rem; /* Font size for loading text */
+  color: #4a90e4; /* Color for loading text */
+  margin-top: 1rem; /* Space above loading text */
+  text-align: center; /* Center the loading text */
 } 

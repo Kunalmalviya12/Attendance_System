@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./AdminDashboard.css"; // Assuming you have a CSS file for styling
 
+
 const AdminDashboard = () => {
   const navigate = useNavigate();
 
@@ -15,6 +16,12 @@ const AdminDashboard = () => {
     facultyId: "",
     password: "",
   });
+
+  // State for user details
+  const [students, setStudents] = useState([]); // State to hold student details
+  const [faculty, setFaculty] = useState([]); // State to hold faculty details
+  const [showUsers, setShowUsers] = useState(false); // State to toggle user details
+  const [loading, setLoading] = useState(false); // Loading state
 
   // Add notification state
   const [notification, setNotification] = useState({
@@ -116,6 +123,25 @@ const AdminDashboard = () => {
     navigate('/admin/create-timetable');
   };
 
+  const handleViewUsers = () => {
+    setLoading(true); // Set loading state
+    // Simulate fetching user details (replace with actual API call)
+    setTimeout(() => {
+      const mockStudents = [
+        { id: 1, name: "John Doe", email: "john@example.com" },
+        { id: 2, name: "Jane Smith", email: "jane@example.com" },
+      ];
+      const mockFaculty = [
+        { id: 1, name: "Dr. Alice Johnson", email: "alice@example.com" },
+        { id: 2, name: "Prof. Bob Brown", email: "bob@example.com" },
+      ];
+      setStudents(mockStudents);
+      setFaculty(mockFaculty);
+      setShowUsers(true); // Show user details
+      setLoading(false); // Reset loading state
+    }, 1000); // Simulate a 1-second delay
+  };
+
   return (
     <div className="admin-dashboard">
       <div className="dashboard-content">
@@ -129,7 +155,48 @@ const AdminDashboard = () => {
             <i className="fas fa-calendar-alt"></i>
             Create Timetable
           </button>
+          <button 
+            className="control-btn"
+            onClick={handleViewUsers}
+          >
+            <i className="fas fa-users"></i>
+            View Users
+          </button>
         </div>
+
+        {/* Show loading indicator while fetching users */}
+        {loading && <div className="loading">Loading users...</div>}
+
+        {/* Show user details if showUsers is true */}
+        {showUsers && !loading && (
+          <div className="user-details">
+            <h2>Registered Users</h2>
+
+            <div className="user-container">
+              <div className="user-column">
+                <h3>Students</h3>
+                {students.map(student => (
+                  <div key={student.id} className="user-item">
+                    <strong>{student.name}</strong> - {student.email}
+                  </div>
+                ))}
+              </div>
+
+              <div className="user-column">
+                <h3>Faculty</h3>
+                {faculty.map(facultyMember => (
+                  <div key={facultyMember.id} className="user-item">
+                    <strong>{facultyMember.name}</strong> - {facultyMember.email}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <button onClick={() => setShowUsers(false)} className="cancel-btn">
+              Close
+            </button>
+          </div>
+        )}
 
         {/* Notification Component */}
         {notification.show && (

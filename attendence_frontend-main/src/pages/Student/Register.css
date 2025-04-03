@@ -1,6 +1,6 @@
 /* Container styles */
 .register-container {
-    min-height: 100vh;
+    min-height: 150vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -10,7 +10,7 @@
 
 .register-box {
     width: 100%;
-    max-width: 450px; /* Reduced from 600px */
+    max-width: 600px; /* Reduced from 600px */
     background: white;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
